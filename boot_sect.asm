@@ -77,5 +77,5 @@ print:
 
 msg:    db "Oh boy do I sure love assembly!", 0
 
-times 510-(\$-$$) db 0
+times 510-($-$$) db 0
 dw 0xAA55
