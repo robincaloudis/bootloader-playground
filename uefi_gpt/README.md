@@ -43,9 +43,25 @@ See https://wiki.osdev.org/UEFI_Bare_Bones
     // Link
     $ clang -target x86_64-unknown-windows -nostdlib -Wl,-entry:efi_main -Wl,-subsystem:efi_application -fuse-ld=lld-link -o BOOTX64.EFI hello.o data.o
     ```
+* Creating the FAT filesystem image
+    * Ref: https://wiki.osdev.org/UEFI_Bare_Bones
+        ```
+        dd if=/dev/zero of=fat.img bs=1k count=1440
+        mformat -i fat.img -f 1440 ::
+        mmd -i fat.img ::/EFI
+        mmd -i fat.img ::/EFI/BOOT
+        mcopy -i fat.img BOOTX64.EFI ::/EFI/BOOT
+        ```
 
 ### Execution (on execution platform)
-* Let x86_64 emulator fire up EFI application
+* I did not have much luch with the instructions _Running as a USB stick image_, however _Creating and running the CD image_ worked on my host machine
+* Creating the CD image:
+    ```
+    mkdir iso
+    cp fat.img iso
+    xorriso -as mkisofs -R -f -e fat.img -no-emul-boot -o cdimage.iso iso
+    ```
+* Let x86_64 emulator fire up EFI application via the CD image
     ```
     $ qemu-system-x86_64 -pflash /opt/homebrew/Cellar/ovmf/stable202102/share/OVMF/OvmfX64/OVMF_CODE.fd -cdrom cdimage.iso
     ```
