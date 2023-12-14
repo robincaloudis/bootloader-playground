@@ -5,21 +5,29 @@ UEFI-GPT is the “new” and, naturally, the ideal way to boot modern programs 
 
 ## Prerequisites
 ### Host platform
-* Install llvm to include lld-link
-* Download gnu-efi
-* brew install mtools
-* brew install automake
-* Preparation for virtual machine
-    * enable UEFI support for Virtual Machines. OVMF contains sample UEFI firmware for QEMU
-    * OVMF via https://gist.github.com/haharoit/a81fecd847003626ef9ef700e4901d15#homebrew-tap
-    * Use homebrew tab provided by author and
+* Install llvm (to include lld-link), mtools and automake
+    ```
+    $ brew install llvm
+    $ brew install mtools
+    $ brew install automake
+    ```
+* Setting up the execution platform
+    * The platform on which we run the run a UEFI implementation that starts our EFI application
+    * The machine emulator and virtualizer QEMU ("Quick Emulator") is used
+    * Install
         ```
-        brew tap uenob/qemu-hvf
-        brew install ovmf
+        $ brew install qemu
         ```
-    * of build from source https://gist.github.com/haharoit/a81fecd847003626ef9ef700e4901d15#build-ovmf-from-the-source
-
-### Execution platform
+    * Enable UEFI support for virtual machines
+        * OVMF contains sample UEFI firmware for QEMU
+        * OVMF via https://gist.github.com/haharoit/a81fecd847003626ef9ef700e4901d15#homebrew-tap
+            * Use homebrew tab provided by author and
+            ```
+            $ brew tap uenob/qemu-hvf
+            $ brew install ovmf
+            ```
+            * or build from source https://gist.github.com/haharoit/a81fecd847003626ef9ef700e4901d15#build-ovmf-from-the-source
+* Download gnu-efi repository
 
 ## Development
 ### Coding

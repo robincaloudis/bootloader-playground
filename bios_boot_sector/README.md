@@ -7,16 +7,17 @@
 * The platform on which we we compile the boot section
 * The asssembler for x86 CPU architectures NASM ("Netwide Assembler") is used, which already has been ported to Apple Silicon and can therefore be used on Apple Silicon Mac host machine
 * Install
-
-    ```brew install nasm```
-
-### Execution platform
-* The platform on which we run the BIOS that selects the boot section
-* The machine emulator and virtualizer QEMU ("Quick Emulator") is used
-* Install
-
-    ```brew install qemu```
-* Things that did not work: Executing on emulator "bochs"
+    ```
+    brew install nasm
+    ```
+* Setting up the execution platform
+    * The platform on which we run the BIOS that selects the boot section
+    * The machine emulator and virtualizer QEMU ("Quick Emulator") is used
+    * Install
+        ```
+        brew install qemu
+        ```
+    * Things that did not work: Executing on emulator "bochs"
 
 ## Development
 ### Coding
