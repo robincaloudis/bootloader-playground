@@ -2,8 +2,7 @@
 * Inspired by https://www.joe-bergeron.com/posts/Writing%20a%20Tiny%20x86%20Bootloader/
 * Other examples:
     * https://steve-mu.medium.com/getting-started-writing-assembly-code-f4b64a21f6dc
-## Prerequisites
-### Host platform
+## Prerequisites (on host platform)
 * The platform on which we we compile the boot section
 * The asssembler for x86 CPU architectures NASM ("Netwide Assembler") is used, which already has been ported to Apple Silicon and can therefore be used on Apple Silicon Mac host machine
 * Install

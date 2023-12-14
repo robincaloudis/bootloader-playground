@@ -3,8 +3,7 @@ UEFI-GPT is the “new” and, naturally, the ideal way to boot modern programs 
 
 * Inspired by https://wiki.osdev.org/UEFI_Bare_Bones
 
-## Prerequisites
-### Host platform
+## Prerequisites (on host platform)
 * Install llvm (to include lld-link), mtools and automake
     ```
     $ brew install llvm
@@ -65,3 +64,4 @@ See https://wiki.osdev.org/UEFI_Bare_Bones
     ```
     $ qemu-system-x86_64 -pflash /opt/homebrew/Cellar/ovmf/stable202102/share/OVMF/OvmfX64/OVMF_CODE.fd -cdrom cdimage.iso
     ```
+    * In contrast to https://wiki.osdev.org/UEFI_Bare_Bones, I did not need to use `-L OVMF_dir/`. In addition I did not use `OVMF.fd` as flash, but the `OVMF_CODE.fd` file provided by _haharoit_ (see Prerequisites)
