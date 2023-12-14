@@ -1,6 +1,7 @@
 ; Source: https://www.joe-bergeron.com/posts/Writing%20a%20Tiny%20x86%20Bootloader/
 bits 16
 
+; On an IBM PC compatible machine, the BIOS selects a boot device, then copies the first sector from the device (any executable code), into physical memory at memory address 0x7C00 (https://en.wikipedia.org/wiki/Boot_sector)
 mov ax, 0x07C0
 mov ds, ax
 mov ax, 0x07E0      ; 07E0h = (07C00h+200h)/10h, beginning of stack segment.
